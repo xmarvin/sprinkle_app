@@ -1,0 +1,33 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          remapper
+# Required-Start:    
+# Required-Stop:     
+# Default-Start:
+# Default-Stop:      0 6
+# Short-Description: Send notification on halt or reboot
+# Description:       Notify on reboot pr halt
+### END INIT INFO
+
+case "$1" in
+  start)
+    # No-op
+    ;;
+  restart|reload|force-reload)
+    echo "Error: argument '$1' not supported" >&2
+    exit 3
+    ;;
+  
+  stop)
+    echo -n "Send notification to server..."
+    date >> /data/surepod/shared/log/notifier_daemon.log
+    /bin/sh /data/bin/notification.sh >> /data/surepod/shared/log/notifier_daemon.log
+    echo "DONE"
+    ;;
+  *)
+    echo "Usage: $0 start|stop" >&2
+    exit 3
+    ;;
+esac
+
+exit 0

@@ -1,0 +1,29 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  hello: "Hello world"
+
+  admin:
+    bot_messages:
+      inbox: "Test Inbox"
+      download_links:
+        title: "Test Inbox (%{unreplied_messages_count}/%{total_messages_count})"
+
+  time:
+    formats:
+      default: "%Y/%m/%d"
+      short: "%b %d, %Y"
+      long_date: "%B %d, %Y"
+      cm_timeline: "%a, %m/%d"
+
+  vendors:
+    einstein:
+      header: '<strong>Welcome to Einstein family!</strong> We are excited to have you use Coach Alba<br />to help you stick to your goals!'
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: 'This email already has an account'
