@@ -1,7 +1,7 @@
 package :mysql, :provides => :database do
   description 'MySQL Database'
   apt %w( mysql-server mysql-client libmysqlclient-dev ) do
-    #post :install, "sudo mysqladmin password toor"
+    post :install, "sudo mysqladmin password toor"
   end
   requires :mysql_grants
   verify do

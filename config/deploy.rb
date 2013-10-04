@@ -1,11 +1,11 @@
 load 'deploy/assets'
 
-set :rvm_ruby_string, 'ruby-1.9.3-p327-perf'
+set :rvm_ruby_string, 'ruby-1.9.3-p448'
 set :rvm_type, :system
 set :rvm_install_pkgs, %w[libyaml openssl]
 
-set :stages, %w(production staging prd3)
-set :default_stage, "staging"
+set :stages, %w(production staging)
+set :default_stage, "production"
 require 'capistrano/ext/multistage'
 
 require "rvm/capistrano"
@@ -39,7 +39,7 @@ namespace :deploy do
   end
 
   task :copy_database_conf, :roles => :app do
-   # run "cp #{release_path}/config/database.yml.template #{release_path}/config/database.yml"
+    run "cp #{release_path}/config/database.yml.template #{release_path}/config/database.yml"
   end
   
   task :copy_envs_conf do
@@ -146,4 +146,4 @@ namespace :whenever do
   end
 end
 
-after "deploy:finalize_update", "deploy:migrate"
+after "deploy:finalize_update", "deploy:copy_database_conf", "deploy:migrate"
