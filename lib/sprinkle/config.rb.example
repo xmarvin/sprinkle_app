@@ -1,0 +1,8 @@
+USER = 'root'
+PASSWORD = 'root'
+PORT = 2212
+APP_NAME = 'app'
+DB_NAME = "#{APP_NAME}_production"
+DEPLOY_USER = 'rails'
+DEPLOY_USER_PASSWORD = 'rails'
+HOST = '0.0.0.0'
